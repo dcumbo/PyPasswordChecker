@@ -30,7 +30,6 @@ def get_pwned_passwords(password):
         print(e)
     except requests.exceptions.RequestException as e:
         print(e)
-        sys.exit(1)
 
 
 def handle_response(password, response):
@@ -49,5 +48,7 @@ def hash_password(password) -> str:
 if __name__ == '__main__':
     try:
         check_passwords(sys.argv[1:])
+        sys.exit(0)
     except RuntimeError as err:
         print(err)
+        sys.exit(1)
